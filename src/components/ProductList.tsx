@@ -1,18 +1,25 @@
 import React from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { PRODUCTS } from "../Products";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../redux/cartSlice";
+import type { RootState } from "../redux/store";
+import toast from "react-hot-toast";
 
 type ProductListProps = {
   category?: string;
 };
 
 const ProductList = ({ category = "All" }: ProductListProps) => {
+  const currentUser = useSelector((state: RootState) => state.user.currentUser);
   const dispatch = useDispatch();
 
   const handleAdd = (item: any) => {
-    dispatch(addToCart(item));
+    if (!currentUser) {
+      toast.error("Please Login First");
+    } else {
+      dispatch(addToCart({ userId: currentUser.email, product: item }));
+    }
   };
 
   const filteredProducts =

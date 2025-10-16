@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { Suspense, lazy } from "react";
-
-const Model = lazy(() => import("./Model"));
-const LoginForm = lazy(() => import("./LoginForm"));
+import { useSelector, useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { Suspense } from "react";
+import type { RootState } from "../redux/store";
+import { logout } from "../redux/userSlice";
 
 type NavbarProps = {
   onCategorySelect?: (cat: string) => void;
@@ -12,25 +11,26 @@ type NavbarProps = {
 
 const Navbar = ({ onCategorySelect }: NavbarProps) => {
   const [showLogin, setShowLogin] = useState(false);
-  const cartProduct = useSelector((state: any) => state.cart.items);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
+  const cartState = useSelector((state: RootState) => state.cart);
+  const { currentUser } = useSelector((state: RootState) => state.user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleCategoryClick = (cat: string) => {
     setSelectedCategory(cat);
-    setIsOpen(false); // Close mobile menu after selection
-    if (onCategorySelect) {
-      onCategorySelect(cat);
-    }
+    setIsOpen(false);
+    if (onCategorySelect) onCategorySelect(cat);
   };
 
-  const handleLogin = (name: string, email: string, password: string) => {
-    alert(`Welcome : ${name}`);
-    setShowLogin(false);
-    console.log(email, password);
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate("/");
   };
 
-  let totalCount = cartProduct.reduce(
+  const cartProduct = currentUser ? cartState[currentUser.email] || [] : [];
+  const totalCount = cartProduct.reduce(
     (acc: number, item: any) => acc + item.quantity,
     0
   );
@@ -85,40 +85,59 @@ const Navbar = ({ onCategorySelect }: NavbarProps) => {
           </ul>
 
           {/* Action Buttons */}
-          <div className="flex items-center gap-2 sm:gap-3">
-            <button
-              className="bg-indigo-600 text-white px-3 sm:px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors font-semibold text-sm sm:text-base"
-              onClick={() => setShowLogin(true)}
-            >
-              <span className="hidden sm:inline">Login</span>
-              <span className="sm:hidden">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
+          <div className="flex items-center gap-3 sm:gap-4">
+            {currentUser ? (
+              <>
+                {/* Profile Circle */}
+                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-semibold cursor-pointer">
+                  {currentUser.username.charAt(0).toUpperCase()}
+                </div>
+
+                {/* Logout Button */}
+                <button
+                  className="bg-red-600 text-white px-3 sm:px-4 py-2 rounded-lg hover:bg-red-700 transition-colors font-semibold text-sm sm:text-base"
+                  onClick={handleLogout}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                  />
-                </svg>
-              </span>
-            </button>
+                  Logout
+                </button>
+              </>
+            ) : (
+              <button
+                className="bg-indigo-600 text-white px-3 sm:px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors font-semibold text-sm sm:text-base"
+                onClick={() => setShowLogin(true)}
+              >
+                <span
+                  className="hidden sm:inline"
+                  onClick={() => navigate("/login")}
+                >
+                  Login
+                </span>
+                <span className="sm:hidden">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                    />
+                  </svg>
+                </span>
+              </button>
+            )}
 
             {showLogin && (
               <Suspense
                 fallback={<div className="text-center mt-10">Loading...</div>}
-              >
-                <Model onClose={() => setShowLogin(false)}>
-                  <LoginForm onLogin={handleLogin}></LoginForm>
-                </Model>
-              </Suspense>
+              ></Suspense>
             )}
 
+            {/* Cart Button */}
             <Link to="/cart" className="relative">
               {totalCount > 0 && (
                 <span className="absolute -top-2 -right-2 bg-red-600 text-white rounded-full text-xs font-bold h-5 w-5 flex items-center justify-center z-10">

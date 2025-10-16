@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import { useState } from "react";
 import { ErrorBoundary } from "react-error-boundary";
+import LoginForm from "./authentication/LoginForm";
+import SignIn from "./authentication/SignIn";
+import { Toaster } from "react-hot-toast";
 
 const Cart = lazy(() => import("./components/Cart"));
 const ProductList = lazy(() => import("./components/ProductList"));
@@ -29,6 +32,7 @@ const App = () => {
 
   return (
     <div className="font-sans">
+      <Toaster position="top-center" reverseOrder={false} />
       <Router>
         <Suspense
           fallback={<div className="text-center mt-10">Loading...</div>}
@@ -43,6 +47,9 @@ const App = () => {
                 </ErrorBoundary>
               }
             ></Route>
+
+            <Route path="/login" element={<LoginForm />}></Route>
+            <Route path="/sign" element={<SignIn />}></Route>
             <Route path="/cart" element={<Cart />}></Route>
           </Routes>
         </Suspense>

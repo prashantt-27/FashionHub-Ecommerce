@@ -2,8 +2,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {
   deleteFromCart,
-  increseQuantity,
-  decreseQuantity,
+  increaseQuantity,
+  decreaseQuantity,
 } from "../redux/cartSlice";
 import type { RootState } from "../redux/store";
 import { useMemo } from "react";
@@ -17,9 +17,15 @@ type CartItem = {
 };
 
 const Cart = () => {
-  const cartProduct = useSelector((state: RootState) => state.cart.items);
+  const currentUser = useSelector((state: RootState) => state.user.currentUser);
+  const cartState = useSelector((state: RootState) => state.cart);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  // Get only the logged-in user's cart
+  const cartProduct: CartItem[] = currentUser
+    ? cartState[currentUser.email] || []
+    : [];
 
   const totalPrice = useMemo(() => {
     return cartProduct
@@ -30,6 +36,20 @@ const Cart = () => {
       .toFixed(2);
   }, [cartProduct]);
 
+  if (!currentUser) {
+    return (
+      <div className="text-center mt-24">
+        <p>Please login to view your cart.</p>
+        <button
+          className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg"
+          onClick={() => navigate("/login")}
+        >
+          Login
+        </button>
+      </div>
+    );
+  }
+
   return (
     <div className="px-2 md:px-0">
       <h1 className="text-2xl md:text-3xl mt-16 md:mt-24 text-center font-bold">
@@ -38,9 +58,9 @@ const Cart = () => {
 
       <div>
         {cartProduct.length > 0 ? (
-          cartProduct.map((item: CartItem, index: number) => (
+          cartProduct.map((item: CartItem) => (
             <div
-              key={index}
+              key={item.id}
               className="bg-white shadow-md flex flex-col md:flex-row justify-between items-center px-4 md:px-6 py-3 w-full md:w-10/12 mx-auto rounded-lg my-5"
             >
               <div className="flex flex-col md:flex-row items-center gap-3 w-full md:w-auto">
@@ -57,14 +77,28 @@ const Cart = () => {
                     <span className="mr-2">Quantity:</span>
                     <button
                       className="text-center bg-blue-600 text-white px-2 md:px-3 py-1 rounded-lg hover:text-gray-200 font-semibold mx-1"
-                      onClick={() => dispatch(decreseQuantity(item.id))}
+                      onClick={() =>
+                        dispatch(
+                          decreaseQuantity({
+                            userId: currentUser.email,
+                            productId: item.id,
+                          })
+                        )
+                      }
                     >
                       -
                     </button>
                     <span className="mx-1">{item.quantity}</span>
                     <button
                       className="text-center bg-blue-600 text-white px-2 md:px-3 py-1 rounded-lg hover:text-gray-200 font-semibold mx-1"
-                      onClick={() => dispatch(increseQuantity(item.id))}
+                      onClick={() =>
+                        dispatch(
+                          increaseQuantity({
+                            userId: currentUser.email,
+                            productId: item.id,
+                          })
+                        )
+                      }
                     >
                       +
                     </button>
@@ -78,7 +112,14 @@ const Cart = () => {
               <div className="mt-3 md:mt-0">
                 <button
                   className="bg-red-600 text-white px-4 py-2 rounded-lg hover:text-gray-200 font-semibold w-full md:w-auto"
-                  onClick={() => dispatch(deleteFromCart(item.id))}
+                  onClick={() =>
+                    dispatch(
+                      deleteFromCart({
+                        userId: currentUser.email,
+                        productId: item.id,
+                      })
+                    )
+                  }
                 >
                   Remove
                 </button>
