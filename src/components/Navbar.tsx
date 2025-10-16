@@ -1,7 +1,6 @@
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { Suspense } from "react";
 import type { RootState } from "../redux/store";
 import { logout } from "../redux/userSlice";
 
@@ -10,7 +9,6 @@ type NavbarProps = {
 };
 
 const Navbar = ({ onCategorySelect }: NavbarProps) => {
-  const [showLogin, setShowLogin] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const cartState = useSelector((state: RootState) => state.cart);
@@ -27,6 +25,7 @@ const Navbar = ({ onCategorySelect }: NavbarProps) => {
   const handleLogout = () => {
     dispatch(logout());
     navigate("/");
+    setIsOpen(false);
   };
 
   const cartProduct = currentUser ? cartState[currentUser.email] || [] : [];
@@ -84,18 +83,15 @@ const Navbar = ({ onCategorySelect }: NavbarProps) => {
             </li>
           </ul>
 
-          {/* Action Buttons */}
-          <div className="flex items-center gap-3 sm:gap-4">
+          {/* Desktop Action Buttons */}
+          <div className="hidden lg:flex items-center gap-3 sm:gap-4">
             {currentUser ? (
               <>
-                {/* Profile Circle */}
-                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-semibold cursor-pointer">
+                <div className="w-9 h-9 bg-blue-600 text-white rounded-full flex items-center justify-center font-semibold cursor-pointer">
                   {currentUser.username.charAt(0).toUpperCase()}
                 </div>
-
-                {/* Logout Button */}
                 <button
-                  className="bg-red-600 text-white px-3 sm:px-4 py-2 rounded-lg hover:bg-red-700 transition-colors font-semibold text-sm sm:text-base"
+                  className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors font-semibold"
                   onClick={handleLogout}
                 >
                   Logout
@@ -103,110 +99,109 @@ const Navbar = ({ onCategorySelect }: NavbarProps) => {
               </>
             ) : (
               <button
-                className="bg-indigo-600 text-white px-3 sm:px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors font-semibold text-sm sm:text-base"
-                onClick={() => setShowLogin(true)}
+                className="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors font-semibold"
+                onClick={() => navigate("/login")}
               >
-                <span
-                  className="hidden sm:inline"
-                  onClick={() => navigate("/login")}
-                >
-                  Login
-                </span>
-                <span className="sm:hidden">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                    />
-                  </svg>
-                </span>
+                Login
               </button>
-            )}
-
-            {showLogin && (
-              <Suspense
-                fallback={<div className="text-center mt-10">Loading...</div>}
-              ></Suspense>
             )}
 
             {/* Cart Button */}
             <Link to="/cart" className="relative">
               {totalCount > 0 && (
-                <span className="absolute -top-2 -right-2 bg-red-600 text-white rounded-full text-xs font-bold h-5 w-5 flex items-center justify-center z-10">
+                <span className="absolute -top-2 -right-2 bg-red-600 text-white rounded-full text-xs font-bold h-5 w-5 flex items-center justify-center">
                   {totalCount > 99 ? "99+" : totalCount}
                 </span>
               )}
-              <button className="bg-blue-600 text-white px-3 sm:px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold text-sm sm:text-base">
-                <span className="hidden sm:inline">Cart</span>
-                <span className="sm:hidden">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-                    />
-                  </svg>
-                </span>
+              <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">
+                Cart
               </button>
             </Link>
-
-            {/* Mobile Menu Button */}
-            <button
-              className="lg:hidden flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 transition-colors"
-              onClick={() => setIsOpen(!isOpen)}
-              aria-label="Toggle menu"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                {isOpen ? (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                ) : (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                )}
-              </svg>
-            </button>
           </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="lg:hidden flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 transition-colors"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              {isOpen ? (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              ) : (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              )}
+            </svg>
+          </button>
         </div>
       </div>
 
-      {/* Mobile Navigation Menu */}
+      {/* Mobile Dropdown Menu */}
       <div
         className={`lg:hidden bg-white border-t border-gray-200 transition-all duration-300 ease-in-out ${
-          isOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
+          isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
         } overflow-hidden`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <ul className="flex flex-col space-y-1 py-4 text-gray-700 font-medium">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4">
+          {currentUser ? (
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-semibold">
+                  {currentUser.username.charAt(0).toUpperCase()}
+                </div>
+                <span className="font-medium text-gray-800">
+                  {currentUser.username}
+                </span>
+              </div>
+              <button
+                onClick={handleLogout}
+                className="bg-red-600 text-white px-3 py-2 rounded-lg text-sm hover:bg-red-700 transition-colors"
+              >
+                Logout
+              </button>
+            </div>
+          ) : (
+            <button
+              className="w-full bg-indigo-600 text-white py-2 rounded-lg mb-3 hover:bg-indigo-700 transition-colors font-semibold"
+              onClick={() => {
+                navigate("/login");
+                setIsOpen(false);
+              }}
+            >
+              Login
+            </button>
+          )}
+
+          {/* Cart Button in Mobile */}
+          <Link
+            to="/cart"
+            onClick={() => setIsOpen(false)}
+            className="block w-full bg-blue-600 text-white py-2 rounded-lg mb-4 text-center font-semibold hover:bg-blue-700 transition-colors relative"
+          >
+            Cart
+            {totalCount > 0 && (
+              <span className="absolute top-0 right-4 bg-red-600 text-white rounded-full text-xs font-bold h-5 w-5 flex items-center justify-center">
+                {totalCount > 99 ? "99+" : totalCount}
+              </span>
+            )}
+          </Link>
+
+          <ul className="flex flex-col space-y-2 text-gray-700 font-medium">
             <Link to="/">
               <li
                 className={`hover:bg-gray-50 hover:text-blue-600 cursor-pointer px-4 py-3 rounded-lg transition-colors ${
