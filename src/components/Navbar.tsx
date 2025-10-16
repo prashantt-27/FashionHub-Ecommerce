@@ -1,4 +1,4 @@
-import { useState, Suspense } from "react";
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import type { RootState } from "../redux/store";
@@ -195,7 +195,7 @@ const Navbar = ({ onCategorySelect }: NavbarProps) => {
           >
             Cart
             {totalCount > 0 && (
-              <span className="absolute top-0 right-4 bg-red-600 text-white rounded-full text-xs font-bold h-5 w-5 flex items-center justify-center">
+              <span className="absolute top-[-7px] right-[-6px] bg-red-600 text-white rounded-full text-xs font-bold h-5 w-5 flex items-center justify-center">
                 {totalCount > 99 ? "99+" : totalCount}
               </span>
             )}
