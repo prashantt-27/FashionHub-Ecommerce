@@ -3,12 +3,12 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import { useState } from "react";
 import { ErrorBoundary } from "react-error-boundary";
-import LoginForm from "./authentication/LoginForm";
-import SignIn from "./authentication/SignIn";
 import { Toaster } from "react-hot-toast";
 
 const Cart = lazy(() => import("./components/Cart"));
 const ProductList = lazy(() => import("./components/ProductList"));
+const LoginForm = lazy(() => import("./authentication/LoginForm"));
+const SignIn = lazy(() => import("./authentication/SignIn"));
 
 const App = () => {
   const [category, setCategory] = useState<string>("All");
