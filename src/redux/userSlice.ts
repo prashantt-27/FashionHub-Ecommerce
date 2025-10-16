@@ -39,8 +39,9 @@ export const userSlice = createSlice({
         toast.success("Login Successfully...");
         localStorage.setItem("currentUser", JSON.stringify(loginUser));
         return;
+      } else {
+        toast.error("Invalid Email or Password");
       }
-      console.log(loginUser);
     },
 
     logout(state) {
