@@ -25,7 +25,7 @@ const cartSlice = createSlice({
       const { userId, product } = action.payload;
       if (!state[userId]) state[userId] = [];
 
-      const existing = state[userId].find((item) => item.id === userId);
+      const existing = state[userId].find((item) => item.id === product.id);
       if (existing) {
         existing.quantity += 1;
       } else {
