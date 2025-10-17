@@ -100,6 +100,7 @@ const ProductList = ({ category = "All" }: ProductListProps) => {
 
   const handleAdd = (item: any) => {
     if (!currentUser) {
+      console.log;
       toast.error("Please Login First");
     } else {
       dispatch(addToCart({ userId: currentUser.email, product: item }));
@@ -396,6 +397,10 @@ const ProductList = ({ category = "All" }: ProductListProps) => {
                       onClick={() => handleAdd(item)}
                     >
                       Add To Cart
+                    </button>
+
+                    <button className="mt-3 w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 sm:py-3.5 rounded-xl font-semibold hover:from-blue-700 hover:to-blue-800 transform hover:scale-105 active:scale-95 transition-all duration-200 shadow-lg hover:shadow-xl text-sm sm:text-base">
+                      View Product
                     </button>
                   </div>
 
