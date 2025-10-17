@@ -13,7 +13,6 @@ const LoginForm = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Add your login logic here
     console.log({ email, password });
     dispatch(login({ email, password }));
     setEmail("");
@@ -59,7 +58,6 @@ const LoginForm = () => {
               />
             </div>
 
-            {/* Submit Button */}
             <button
               type="submit"
               className="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition"
@@ -67,7 +65,6 @@ const LoginForm = () => {
               Login
             </button>
 
-            {/* Forgot Password */}
             <p className="text-center text-gray-500 mt-2">
               <a href="#" className="text-blue-600 hover:underline">
                 Forgot Password?

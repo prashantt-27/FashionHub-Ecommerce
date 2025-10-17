@@ -154,7 +154,6 @@ const ProductList = ({ category = "All" }: ProductListProps) => {
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-gray-50">
-        {/* Header Section */}
         <div className="pt-16 pb-8 md:pt-24 md:pb-12 px-4">
           <div className="max-w-7xl mx-auto text-center">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-600 bg-clip-text text-transparent mb-4">
@@ -295,7 +294,6 @@ const ProductList = ({ category = "All" }: ProductListProps) => {
                   </div>
                 </div>
 
-                {/* Clear Filters Button */}
                 <div className="flex items-end">
                   <button
                     onClick={clearFilters}
@@ -351,7 +349,6 @@ const ProductList = ({ category = "All" }: ProductListProps) => {
               </div>
             )}
 
-            {/* Results Count */}
             <div className="mt-4 text-sm text-gray-600">
               Showing {displayedProducts.length} of {filteredProducts.length}{" "}
               products
@@ -359,7 +356,6 @@ const ProductList = ({ category = "All" }: ProductListProps) => {
           </div>
         </div>
 
-        {/* Products Grid */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
           <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {displayedProducts.map((item, index) => {
@@ -370,7 +366,6 @@ const ProductList = ({ category = "All" }: ProductListProps) => {
                   key={item.id}
                   ref={isLast ? ref : null}
                 >
-                  {/* Product Image Container */}
                   <div className="relative aspect-square bg-gradient-to-br from-gray-50 to-gray-100 p-6 sm:p-8 flex items-center justify-center overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-indigo-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <img
@@ -380,13 +375,11 @@ const ProductList = ({ category = "All" }: ProductListProps) => {
                     />
                   </div>
 
-                  {/* Product Info */}
                   <div className="p-4 sm:p-6">
                     <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 line-clamp-2 min-h-[3rem] group-hover:text-blue-600 transition-colors duration-200">
                       {item.title}
                     </h3>
 
-                    {/* Price and Badge */}
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex items-baseline">
                         <span className="text-2xl sm:text-3xl font-bold text-blue-600">
@@ -398,7 +391,6 @@ const ProductList = ({ category = "All" }: ProductListProps) => {
                       </div>
                     </div>
 
-                    {/* Add to Cart Button */}
                     <button
                       className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 sm:py-3.5 rounded-xl font-semibold hover:from-blue-700 hover:to-blue-800 transform hover:scale-105 active:scale-95 transition-all duration-200 shadow-lg hover:shadow-xl text-sm sm:text-base"
                       onClick={() => handleAdd(item)}
@@ -407,14 +399,12 @@ const ProductList = ({ category = "All" }: ProductListProps) => {
                     </button>
                   </div>
 
-                  {/* Hover Effect Overlay */}
                   <div className="absolute inset-0 border-2 border-blue-600 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
                 </div>
               );
             })}
           </div>
 
-          {/* Loading Spinner */}
           {loading && (
             <div className="flex justify-center items-center py-12">
               <div className="relative">
@@ -424,7 +414,6 @@ const ProductList = ({ category = "All" }: ProductListProps) => {
             </div>
           )}
 
-          {/* End of List Message */}
           {!loading &&
             displayedProducts.length >= filteredProducts.length &&
             filteredProducts.length > 0 && (
@@ -450,7 +439,6 @@ const ProductList = ({ category = "All" }: ProductListProps) => {
               </div>
             )}
 
-          {/* Empty State */}
           {filteredProducts.length === 0 && (
             <div className="text-center py-20">
               <div className="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">

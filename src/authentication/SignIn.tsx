@@ -75,7 +75,6 @@ const LoginForm = () => {
               />
             </div>
 
-            {/* Submit Button */}
             <button
               type="submit"
               className="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-purple-700 transition"
@@ -84,7 +83,6 @@ const LoginForm = () => {
             </button>
           </form>
 
-          {/* Signup Link */}
           <p className="text-center text-gray-500 mt-6">
             Already have an account?{" "}
             <a

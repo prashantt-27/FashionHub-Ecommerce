@@ -81,7 +81,6 @@ const Cart = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-gray-50 pt-20 pb-12 px-4 sm:px-6 lg:px-8">
-      {/* Header Section */}
       <div className="max-w-6xl mx-auto mb-8">
         <div className="text-center mb-6">
           <h1 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-600 bg-clip-text text-transparent mb-3">
@@ -100,7 +99,6 @@ const Cart = () => {
       <div className="max-w-6xl mx-auto">
         {cartProduct.length > 0 ? (
           <div className="grid lg:grid-cols-3 gap-6">
-            {/* Cart Items */}
             <div className="lg:col-span-2 space-y-4">
               {cartProduct.map((item: CartItem) => (
                 <div
@@ -108,7 +106,6 @@ const Cart = () => {
                   className="bg-white shadow-lg hover:shadow-xl transition-all duration-300 rounded-2xl overflow-hidden border border-gray-100"
                 >
                   <div className="flex flex-col sm:flex-row p-4 sm:p-6 gap-4">
-                    {/* Product Image */}
                     <div className="flex-shrink-0 mx-auto sm:mx-0">
                       <div className="w-32 h-32 sm:w-36 sm:h-36 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl flex items-center justify-center p-4 overflow-hidden">
                         <img
@@ -119,14 +116,12 @@ const Cart = () => {
                       </div>
                     </div>
 
-                    {/* Product Details */}
                     <div className="flex-1 flex flex-col justify-between min-w-0">
                       <div>
                         <h2 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 line-clamp-2">
                           {item.title}
                         </h2>
 
-                        {/* Price */}
                         <div className="flex items-baseline gap-2 mb-4">
                           <span className="text-2xl sm:text-3xl font-bold text-blue-600">
                             ${item.price}
@@ -136,7 +131,6 @@ const Cart = () => {
                           </span>
                         </div>
 
-                        {/* Quantity Controls */}
                         <div className="flex items-center gap-3 mb-3">
                           <span className="text-sm font-medium text-gray-700">
                             Quantity:
@@ -175,7 +169,6 @@ const Cart = () => {
                           </div>
                         </div>
 
-                        {/* Subtotal */}
                         <div className="flex items-center gap-2">
                           <span className="text-sm text-gray-600">
                             Subtotal:
@@ -187,7 +180,6 @@ const Cart = () => {
                       </div>
                     </div>
 
-                    {/* Remove Button */}
                     <div className="flex sm:flex-col items-center justify-center sm:justify-start gap-2">
                       <button
                         className="bg-gradient-to-r from-red-500 to-red-600 text-white p-3 rounded-xl hover:from-red-600 hover:to-red-700 transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105"
@@ -221,7 +213,6 @@ const Cart = () => {
               ))}
             </div>
 
-            {/* Order Summary */}
             <div className="lg:col-span-1">
               <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sticky top-24">
                 <h3 className="text-xl font-bold text-gray-900 mb-4 pb-4 border-b border-gray-200">
@@ -322,7 +313,6 @@ const Cart = () => {
             </div>
           </div>
         ) : (
-          // Empty Cart State
           <div className="max-w-2xl mx-auto">
             <div className="bg-white rounded-2xl shadow-lg p-8 sm:p-12 text-center border border-gray-100">
               <div className="w-32 h-32 bg-gradient-to-br from-gray-100 to-gray-200 rounded-full flex items-center justify-center mx-auto mb-6">
