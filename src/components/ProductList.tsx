@@ -172,7 +172,6 @@ const ProductList = ({ category = "All" }: ProductListProps) => {
           </div>
         </div>
 
-        {/* Search and Filter Bar */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
           <div className="bg-white rounded-2xl shadow-lg p-4 sm:p-6">
             {/* Search Bar */}
@@ -222,7 +221,6 @@ const ProductList = ({ category = "All" }: ProductListProps) => {
                 )}
               </div>
 
-              {/* Filter Toggle Button (Mobile) */}
               <button
                 onClick={() => setShowFilters(!showFilters)}
                 className="sm:hidden flex items-center justify-center px-6 py-3 border border-gray-300 rounded-xl hover:bg-gray-50 transition duration-200"
@@ -244,7 +242,6 @@ const ProductList = ({ category = "All" }: ProductListProps) => {
               </button>
             </div>
 
-            {/* Filters Row */}
             <div className={`${showFilters ? "block" : "hidden"} sm:block`}>
               <div className="flex flex-col sm:flex-row gap-4">
                 {/* Sort Dropdown */}
@@ -265,7 +262,6 @@ const ProductList = ({ category = "All" }: ProductListProps) => {
                   </select>
                 </div>
 
-                {/* Price Range */}
                 <div className="flex-1">
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Price Range
@@ -311,7 +307,6 @@ const ProductList = ({ category = "All" }: ProductListProps) => {
               </div>
             </div>
 
-            {/* Active Filters Display */}
             {(searchQuery ||
               sortBy !== "default" ||
               priceRange.min > 0 ||
