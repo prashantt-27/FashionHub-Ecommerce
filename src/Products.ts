@@ -6,6 +6,9 @@ export const PRODUCTS = [
     price: 39.99,
     image: "https://images.unsplash.com/photo-1542272604-787c3835535d?w=500",
     category: "Mens",
+    rating: 4.5,
+    description:
+      "Classic slim-fit jeans crafted from durable denim for a modern, stylish look.",
   },
   {
     id: "m2",
@@ -13,6 +16,9 @@ export const PRODUCTS = [
     price: 29.99,
     image: "https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=500",
     category: "Mens",
+    rating: 4.3,
+    description:
+      "Soft cotton polo shirt perfect for casual outings and weekend comfort.",
   },
   {
     id: "m3",
@@ -20,6 +26,9 @@ export const PRODUCTS = [
     price: 89.99,
     image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=500",
     category: "Mens",
+    rating: 4.8,
+    description:
+      "Premium leather jacket that adds rugged charm and warmth to any outfit.",
   },
   {
     id: "m4",
@@ -27,6 +36,9 @@ export const PRODUCTS = [
     price: 24.99,
     image: "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=500",
     category: "Mens",
+    rating: 4.2,
+    description:
+      "Lightweight chino shorts designed for comfort during warm days.",
   },
   {
     id: "m5",
@@ -34,6 +46,9 @@ export const PRODUCTS = [
     price: 19.99,
     image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500",
     category: "Mens",
+    rating: 4.4,
+    description:
+      "Trendy graphic tee that brings personality and style to your casual wear.",
   },
   {
     id: "m6",
@@ -41,6 +56,9 @@ export const PRODUCTS = [
     price: 44.99,
     image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=500",
     category: "Mens",
+    rating: 4.6,
+    description:
+      "Premium cotton formal shirt offering elegance for office or events.",
   },
   {
     id: "m7",
@@ -48,6 +66,9 @@ export const PRODUCTS = [
     price: 64.99,
     image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500",
     category: "Mens",
+    rating: 4.7,
+    description:
+      "Breathable and lightweight running shoes designed for maximum performance.",
   },
   {
     id: "m8",
@@ -55,6 +76,9 @@ export const PRODUCTS = [
     price: 119.99,
     image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=500",
     category: "Mens",
+    rating: 4.8,
+    description:
+      "Tailored wool blazer that adds a sophisticated touch to your wardrobe.",
   },
   {
     id: "m9",
@@ -62,6 +86,9 @@ export const PRODUCTS = [
     price: 34.99,
     image: "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=500",
     category: "Mens",
+    rating: 4.4,
+    description:
+      "Stretchy joggers designed for workouts or laid-back weekends.",
   },
   {
     id: "m10",
@@ -69,6 +96,9 @@ export const PRODUCTS = [
     price: 39.99,
     image: "https://images.unsplash.com/photo-1598032895397-b9372235e456?w=500",
     category: "Mens",
+    rating: 4.5,
+    description:
+      "Cozy flannel shirt with a classic checkered pattern for everyday wear.",
   },
   {
     id: "m11",
@@ -76,6 +106,9 @@ export const PRODUCTS = [
     price: 79.99,
     image: "https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?w=500",
     category: "Mens",
+    rating: 4.7,
+    description:
+      "Elegant dress shoes crafted with fine leather and premium detailing.",
   },
   {
     id: "m12",
@@ -83,6 +116,9 @@ export const PRODUCTS = [
     price: 42.99,
     image: "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=500",
     category: "Mens",
+    rating: 4.3,
+    description:
+      "Functional cargo pants featuring multiple pockets and a rugged style.",
   },
   {
     id: "m13",
@@ -90,6 +126,9 @@ export const PRODUCTS = [
     price: 94.99,
     image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=500",
     category: "Mens",
+    rating: 4.6,
+    description:
+      "Stylish varsity jacket with a vintage sporty aesthetic and soft lining.",
   },
   {
     id: "m14",
@@ -97,6 +136,9 @@ export const PRODUCTS = [
     price: 27.99,
     image: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=500",
     category: "Mens",
+    rating: 4.2,
+    description:
+      "Quick-dry swim trunks perfect for pool days and beach vacations.",
   },
   {
     id: "m15",
@@ -104,6 +146,9 @@ export const PRODUCTS = [
     price: 109.99,
     image: "https://images.unsplash.com/photo-1548126032-079d4ddce6cb?w=500",
     category: "Mens",
+    rating: 4.9,
+    description:
+      "Warm and lightweight puffer jacket ideal for cold weather adventures.",
   },
 
   // Women's Clothing
@@ -113,6 +158,8 @@ export const PRODUCTS = [
     price: 49.99,
     image: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=500",
     category: "Womens",
+    rating: 4.7,
+    description: "Charming floral dress perfect for picnics and sunny outings.",
   },
   {
     id: "w2",
@@ -120,6 +167,8 @@ export const PRODUCTS = [
     price: 59.99,
     image: "https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=500",
     category: "Womens",
+    rating: 4.6,
+    description: "Timeless denim jacket that complements every casual look.",
   },
   {
     id: "w3",
@@ -127,6 +176,8 @@ export const PRODUCTS = [
     price: 34.99,
     image: "https://images.unsplash.com/photo-1485968579580-b6d095142e6e?w=500",
     category: "Womens",
+    rating: 4.4,
+    description: "Elegant striped blouse suitable for both office and outings.",
   },
   {
     id: "w4",
@@ -134,6 +185,9 @@ export const PRODUCTS = [
     price: 44.99,
     image: "https://images.unsplash.com/photo-1594633313593-bab3825d0caf?w=500",
     category: "Womens",
+    rating: 4.5,
+    description:
+      "Comfortable wide-leg trousers offering style and flexibility.",
   },
   {
     id: "w5",
@@ -141,6 +195,8 @@ export const PRODUCTS = [
     price: 39.99,
     image: "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=500",
     category: "Womens",
+    rating: 4.6,
+    description: "Everyday sneakers combining comfort and effortless chic.",
   },
   {
     id: "w6",
@@ -148,6 +204,8 @@ export const PRODUCTS = [
     price: 129.99,
     image: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=500",
     category: "Womens",
+    rating: 4.9,
+    description: "Luxurious silk gown that exudes grace and sophistication.",
   },
   {
     id: "w7",
@@ -155,6 +213,8 @@ export const PRODUCTS = [
     price: 54.99,
     image: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=500",
     category: "Womens",
+    rating: 4.5,
+    description: "Soft and cozy cardigan ideal for layering in cool weather.",
   },
   {
     id: "w8",
@@ -162,6 +222,8 @@ export const PRODUCTS = [
     price: 49.99,
     image: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=500",
     category: "Womens",
+    rating: 4.6,
+    description: "Stretchy high-waist jeans that flatter every body type.",
   },
   {
     id: "w9",
@@ -169,6 +231,8 @@ export const PRODUCTS = [
     price: 89.99,
     image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500",
     category: "Womens",
+    rating: 4.8,
+    description: "Chic leather boots with sturdy heels for all-day comfort.",
   },
   {
     id: "w10",
@@ -176,6 +240,9 @@ export const PRODUCTS = [
     price: 32.99,
     image: "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=500",
     category: "Womens",
+    rating: 4.5,
+    description:
+      "Flexible and breathable leggings perfect for workouts or lounging.",
   },
   {
     id: "w11",
@@ -183,6 +250,8 @@ export const PRODUCTS = [
     price: 42.99,
     image: "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=500",
     category: "Womens",
+    rating: 4.4,
+    description: "Flowy maxi skirt with a comfortable elastic waistband.",
   },
   {
     id: "w12",
@@ -190,6 +259,8 @@ export const PRODUCTS = [
     price: 64.99,
     image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=500",
     category: "Womens",
+    rating: 4.7,
+    description: "Chic wrap dress that enhances natural curves beautifully.",
   },
   {
     id: "w13",
@@ -197,6 +268,8 @@ export const PRODUCTS = [
     price: 54.99,
     image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500",
     category: "Womens",
+    rating: 4.5,
+    description: "Comfortable heeled sandals with a stylish minimalist design.",
   },
   {
     id: "w14",
@@ -204,6 +277,8 @@ export const PRODUCTS = [
     price: 134.99,
     image: "https://images.unsplash.com/photo-1591369822096-ffd140ec948f?w=500",
     category: "Womens",
+    rating: 4.9,
+    description: "Professional blazer set combining confidence with elegance.",
   },
   {
     id: "w15",
@@ -211,6 +286,8 @@ export const PRODUCTS = [
     price: 39.99,
     image: "https://images.unsplash.com/photo-1520903920243-00d872a2d1c9?w=500",
     category: "Womens",
+    rating: 4.6,
+    description: "Luxuriously soft cashmere scarf to elevate your winter look.",
   },
 
   // Kids' Clothing
@@ -220,6 +297,8 @@ export const PRODUCTS = [
     price: 24.99,
     image: "https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?w=500",
     category: "Kids",
+    rating: 4.5,
+    description: "Cute and cozy hoodie featuring fun animal prints for kids.",
   },
   {
     id: "k2",
@@ -227,6 +306,9 @@ export const PRODUCTS = [
     price: 29.99,
     image: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=500",
     category: "Kids",
+    rating: 4.4,
+    description:
+      "Classic denim overalls built for playtime comfort and durability.",
   },
   {
     id: "k3",
@@ -234,6 +316,8 @@ export const PRODUCTS = [
     price: 19.99,
     image: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=500",
     category: "Kids",
+    rating: 4.3,
+    description: "Bright and playful t-shirt with adorable printed designs.",
   },
   {
     id: "k4",
@@ -241,6 +325,8 @@ export const PRODUCTS = [
     price: 22.99,
     image: "https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?w=500",
     category: "Kids",
+    rating: 4.5,
+    description: "Stylish plaid skirt ideal for school or weekend outings.",
   },
   {
     id: "k5",
@@ -248,6 +334,8 @@ export const PRODUCTS = [
     price: 34.99,
     image: "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=500",
     category: "Kids",
+    rating: 4.8,
+    description: "Fun sneakers with built-in LED lights that kids will love.",
   },
   {
     id: "k6",
@@ -255,6 +343,8 @@ export const PRODUCTS = [
     price: 27.99,
     image: "https://images.unsplash.com/photo-1596568359553-a56de6970068?w=500",
     category: "Kids",
+    rating: 4.6,
+    description: "Soft cotton pajamas featuring colorful cartoon prints.",
   },
   {
     id: "k7",
@@ -262,6 +352,8 @@ export const PRODUCTS = [
     price: 39.99,
     image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=500",
     category: "Kids",
+    rating: 4.7,
+    description: "Lightweight rain jacket that keeps your child dry and cozy.",
   },
   {
     id: "k8",
@@ -269,6 +361,8 @@ export const PRODUCTS = [
     price: 24.99,
     image: "https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?w=500",
     category: "Kids",
+    rating: 4.4,
+    description: "Breathable summer romper for all-day comfort and play.",
   },
   {
     id: "k9",
@@ -276,6 +370,8 @@ export const PRODUCTS = [
     price: 29.99,
     image: "https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?w=500",
     category: "Kids",
+    rating: 4.6,
+    description: "Warm fleece pullover to keep kids cozy during winter days.",
   },
   {
     id: "k10",
@@ -283,6 +379,9 @@ export const PRODUCTS = [
     price: 44.99,
     image: "https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?w=500",
     category: "Kids",
+    rating: 4.5,
+    description:
+      "Sporty training outfit perfect for active and energetic kids.",
   },
   {
     id: "k11",
@@ -290,6 +389,8 @@ export const PRODUCTS = [
     price: 32.99,
     image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500",
     category: "Kids",
+    rating: 4.7,
+    description: "Durable backpack with ample space for books and lunchbox.",
   },
   {
     id: "k12",
@@ -297,6 +398,8 @@ export const PRODUCTS = [
     price: 26.99,
     image: "https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?w=500",
     category: "Kids",
+    rating: 4.4,
+    description: "Soft and lightweight cotton dress with adorable patterns.",
   },
   {
     id: "k13",
@@ -304,6 +407,8 @@ export const PRODUCTS = [
     price: 44.99,
     image: "https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=500",
     category: "Kids",
+    rating: 4.8,
+    description: "Insulated boots designed to keep little feet warm and dry.",
   },
   {
     id: "k14",
@@ -311,6 +416,8 @@ export const PRODUCTS = [
     price: 16.99,
     image: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=500",
     category: "Kids",
+    rating: 4.3,
+    description: "Cool adjustable cap for outdoor play and sunny days.",
   },
   {
     id: "k15",
@@ -318,5 +425,7 @@ export const PRODUCTS = [
     price: 21.99,
     image: "https://images.unsplash.com/photo-1578587018452-892bacefd3f2?w=500",
     category: "Kids",
+    rating: 4.5,
+    description: "Colorful swimwear perfect for pool parties and summer fun.",
   },
 ];

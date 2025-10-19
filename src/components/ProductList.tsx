@@ -6,6 +6,7 @@ import { addToCart } from "../redux/cartSlice";
 import type { RootState } from "../redux/store";
 import toast from "react-hot-toast";
 import { useInView } from "react-intersection-observer";
+import { useNavigate } from "react-router-dom";
 
 type ProductListProps = {
   category?: string;
@@ -16,6 +17,7 @@ const PAGE_SIZE = 8;
 const ProductList = ({ category = "All" }: ProductListProps) => {
   const currentUser = useSelector((state: RootState) => state.user.currentUser);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [searchQuery, setSearchQuery] = useState("");
   const [sortBy, setSortBy] = useState("default");
@@ -399,7 +401,10 @@ const ProductList = ({ category = "All" }: ProductListProps) => {
                       Add To Cart
                     </button>
 
-                    <button className="mt-3 w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 sm:py-3.5 rounded-xl font-semibold hover:from-blue-700 hover:to-blue-800 transform hover:scale-105 active:scale-95 transition-all duration-200 shadow-lg hover:shadow-xl text-sm sm:text-base">
+                    <button
+                      className="mt-3 w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 sm:py-3.5 rounded-xl font-semibold hover:from-blue-700 hover:to-blue-800 transform hover:scale-105 active:scale-95 transition-all duration-200 shadow-lg hover:shadow-xl text-sm sm:text-base"
+                      onClick={() => navigate(`/product/${item.id}`)}
+                    >
                       View Product
                     </button>
                   </div>

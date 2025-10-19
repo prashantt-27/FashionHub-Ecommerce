@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import { useState } from "react";
 import { ErrorBoundary } from "react-error-boundary";
+import ProductDetails from "./components/ProductDetails";
 import { Toaster } from "react-hot-toast";
 
 const Cart = lazy(() => import("./components/Cart"));
@@ -47,7 +48,7 @@ const App = () => {
                 </ErrorBoundary>
               }
             ></Route>
-
+            <Route path="/product/:id" element={<ProductDetails />}></Route>
             <Route path="/login" element={<LoginForm />}></Route>
             <Route path="/sign" element={<SignIn />}></Route>
             <Route path="/cart" element={<Cart />}></Route>
