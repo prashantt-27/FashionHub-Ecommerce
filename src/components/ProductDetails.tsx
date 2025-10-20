@@ -59,7 +59,9 @@ const ProductDetail = () => {
       toast.error("Please Login First");
     } else {
       for (let i = 0; i < quantity; i++) {
-        dispatch(addToCart({ userId: currentUser.email, product }));
+        dispatch(
+          addToCart({ userId: currentUser.email, product: product as any })
+        );
       }
       toast.success(`Added ${quantity} item(s) to cart`);
     }
