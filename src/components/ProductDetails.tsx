@@ -69,7 +69,7 @@ const ProductDetail = () => {
   const decrementQuantity = () => setQuantity((q) => (q > 1 ? q - 1 : 1));
 
   // Mock additional images (using same image for demo)
-  const images = [product.image, product.image, product.image];
+  const images = [product.images[0], product.images[1], product.images[2]];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-gray-50">

@@ -57,7 +57,7 @@ const Navbar = ({ onCategorySelect }: NavbarProps) => {
                 </svg>
               </div>
               <h1 className="text-lg sm:text-xl lg:text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                ShopHub
+                FashionHub
               </h1>
             </div>
           </Link>

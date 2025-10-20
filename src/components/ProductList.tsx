@@ -372,7 +372,7 @@ const ProductList = ({ category = "All" }: ProductListProps) => {
                   <div className="relative aspect-square bg-gradient-to-br from-gray-50 to-gray-100 p-6 sm:p-8 flex items-center justify-center overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-indigo-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <img
-                      src={item.image}
+                      src={item.images[0]}
                       alt={item.title}
                       className="relative w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-500 z-10"
                     />
