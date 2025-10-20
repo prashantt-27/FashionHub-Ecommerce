@@ -12,7 +12,7 @@ type CartItem = {
   id: string;
   title: string;
   quantity: number;
-  image: string;
+  images: string[];
   price: number;
 };
 
@@ -22,7 +22,6 @@ const Cart = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // Get only the logged-in user's cart
   const cartProduct: CartItem[] = currentUser
     ? cartState[currentUser.email] || []
     : [];
@@ -109,7 +108,7 @@ const Cart = () => {
                     <div className="flex-shrink-0 mx-auto sm:mx-0">
                       <div className="w-32 h-32 sm:w-36 sm:h-36 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl flex items-center justify-center p-4 overflow-hidden">
                         <img
-                          src={item.image}
+                          src={item.images[0]}
                           alt={item.title}
                           className="w-full h-full object-contain transform hover:scale-110 transition-transform duration-300"
                         />
