@@ -28,3 +28,18 @@ This is the **frontend** of a modern E-commerce website built using **React**, *
 
 ## Folder Structure
 
+ecommerce-frontend/
+│
+├── public/ # Public assets
+├── src/
+│ ├── assets/ # Images, icons, fonts
+│ ├── components/ # Reusable UI components
+│ ├── authentication/ # authentication with Login and SignUp
+│ ├── redux/ # Redux slices and store
+│ ├── App.tsx # Main app component
+│ ├── index.tsx # Entry point
+├── tailwind.config.js # Tailwind configuration
+├── tsconfig.json # TypeScript configuration
+├── package.json # NPM scripts and dependencies
+└── README.md
+
